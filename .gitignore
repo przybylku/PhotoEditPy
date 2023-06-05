@@ -1,0 +1,6 @@
+*.png
+build
+dist
+venv
+./*.png
+uncle.png

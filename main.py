@@ -9,7 +9,7 @@ from PIL import Image, ImageTk
 class PhotoUI(ttk.Frame):
     def __init__(self, parent):
         ttk.Frame.__init__(self)
-        for index in [0,1,2]:
+        for index in [0, 1, 2]:
             self.columnconfigure(index=index, weight=1)
             self.rowconfigure(index=index, weight=1)
         self.option_menu_list = ["", "OptionMenu", "Option 1", "Option 2"]
