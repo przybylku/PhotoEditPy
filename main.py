@@ -55,7 +55,7 @@ class PhotoUI(ttk.Frame):
         if self.imphoto is not None:
             self.imphoto.resize(size)
             self.imphoto.save(f"{self.photoName} resized.png", "PNG")
-            self.resize_btn.
+            self.resize_btn.config(text="Resized!@")
 class PhotoPy():
     def opening(self, src, fo="png"):
         for ifile in glob.glob(f"{src}"):
