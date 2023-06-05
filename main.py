@@ -43,8 +43,8 @@ class PhotoUI(ttk.Frame):
         self.resize_btn.grid(row=1, column=0)
     def upload_file(self):
         global img, imphoto, photoName
-        f_types = [("png files", "*.png")]
-        filename = filedialog.askopenfilename(filetypes=f_types)
+        self.f_types = [("png files", "*.png"), ("jpg files", "*.jpg")]
+        filename = filedialog.askopenfilename(filetypes=self.f_types)
         print(filename)
         self.imphoto = Image.open(filename).resize((100, 200))
         self.photoName, ext = os.path.splitext(filename)
@@ -54,8 +54,10 @@ class PhotoUI(ttk.Frame):
     def resize_img(self, size):
         if self.imphoto is not None:
             self.imphoto.resize(size)
-            self.imphoto.save(f"{self.photoName} resized.png", "PNG")
-            self.resize_btn.config(text="Resized!@")
+            file = filedialog.asksaveasfilename(filetypes=self.f_types, defaultextension=self.f_types)
+            print(file)
+            self.imphoto.save(f"{file}", "PNG")
+            self.resize_btn.config(text="Resized!")
 class PhotoPy():
     def opening(self, src, fo="png"):
         for ifile in glob.glob(f"{src}"):
